@@ -1,13 +1,20 @@
-import { useState } from "react";
-import ScaleLoader from "react-spinners/ScaleLoader";
+import { ThreeCircles } from "react-loader-spinner";
 
 const Loader = () => {
-	let [loading, setLoading] = useState(true);
-	let [color, setColor] = useState("#ffffff");
-
 	return (
-		<div className="loader">
-			<ScaleLoader loading={loading} size={100} />
+		<div>
+			<ThreeCircles
+				height="100"
+				width="100"
+				color="black"
+				wrapperStyle={{}}
+				wrapperClass=""
+				visible={true}
+				ariaLabel="three-circles-rotating"
+				outerCircleColor=""
+				innerCircleColor=""
+				middleCircleColor=""
+			/>
 		</div>
 	);
 };
