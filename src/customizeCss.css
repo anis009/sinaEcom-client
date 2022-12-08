@@ -1,0 +1,14 @@
+.font-bold {
+	font-weight: bold;
+}
+
+.font-semibold {
+	font-weight: 600;
+}
+.h-100vh {
+	height: 80vh;
+}
+
+.h-100vw {
+	height: 100vw;
+}

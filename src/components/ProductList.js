@@ -50,6 +50,10 @@ const ProductList = () => {
 		});
 	}, [dispatch]);
 
+	if (loading) {
+		return <Loader></Loader>;
+	}
+
 	const numsArray = [];
 	let pageSize;
 	if (products) {
@@ -75,7 +79,7 @@ const ProductList = () => {
 				<>
 					<div>
 						<div>
-							<h1 className="top-rated-header">Top Rated Products</h1>
+							<h1 className="top-rated-header mt-2">Top Rated Products</h1>
 							<div>
 								<motion.div ref={carousel} className="carousel">
 									<motion.div

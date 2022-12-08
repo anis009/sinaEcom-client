@@ -26,6 +26,7 @@ const ProductDetailsScreen = () => {
 	const dispatch = useDispatch();
 
 	const getSingleProducts = useSelector((state) => state.getSingleProduct);
+	const { userInfo } = useSelector((state) => state.userSignup);
 
 	const { product, loading, error } = getSingleProducts;
 
@@ -37,6 +38,7 @@ const ProductDetailsScreen = () => {
 		if (!product) {
 			dispatch(getSingleProduct(id));
 		}
+
 		if (success === true) {
 			dispatch(getSingleProduct(id));
 			dispatch({
@@ -51,6 +53,10 @@ const ProductDetailsScreen = () => {
 	};
 
 	const reviewSubmitHandler = async (e) => {
+		if (!userInfo) {
+			alert("Please,Login");
+			return;
+		}
 		e.preventDefault();
 		dispatch(addProductReview(id, { rating, comment: review }));
 	};
@@ -158,7 +164,7 @@ const ProductDetailsScreen = () => {
 											</div>
 										)}
 
-										<form action="" onSubmit={reviewSubmitHandler}>
+										<form className="mb-2" onSubmit={reviewSubmitHandler}>
 											<label for="rating" className="rating-label">
 												Rating:
 											</label>
@@ -210,13 +216,13 @@ const ProductDetailsScreen = () => {
 										.map((review) => (
 											<div>
 												<div className="show-review-sub-box">
-													<div className="left-show-review">
-														<span className="review-img">
-															{review.name.substring(0, 1)}
-														</span>
-														<strong className="text-uppercase">
+													<div className="left-show-review  d-flex justify-center align-items-center">
+														<div className="review-profile-img mr-1 profile-belt">
+															{review.name.substring(0, 2)}
+														</div>
+														<div className="text-capitalize font-bold font-size-20">
 															{review.name}
-														</strong>
+														</div>
 													</div>
 													<div className="right-show-review">
 														<Rating rating={review.rating} />

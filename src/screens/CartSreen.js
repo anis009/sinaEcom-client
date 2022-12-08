@@ -53,7 +53,7 @@ const CartSreen = () => {
 										}}
 									>
 										<img
-											src={product.image}
+											src={`http://localhost:7070${product.image}`}
 											alt=""
 											style={{
 												width: "60px",

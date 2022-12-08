@@ -17,84 +17,99 @@ import ProfileScreen from "./screens/ProfileScreen";
 import SearchScreen from "./screens/SearchScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
 import ResestPasswordScreen from "./screens/ResestPasswordScreen";
+import Admin from "./Admin/Admin";
+import Orders from "./Admin/pages/Orders";
 
 function App() {
 	return (
-		<Router>
-			<Navbar className="m-3" />
-			<main className="p-3">
+		<div style={{ maxWidth: 1450, margin: "auto" }}>
+			<Router>
 				<Routes>
-					<Route exact path="/" element={<HomeScreen />} />
+					<Navbar className="m-3" />
 				</Routes>
-				<Routes>
-					<Route
-						exact
-						path="/forgotpassword"
-						element={<ForgotPasswordScreen />}
-					/>
-				</Routes>
+				<main className="">
+					<Routes>
+						<Route exact path="/" element={<HomeScreen />} />
+					</Routes>
+					<Routes>
+						<Route
+							exact
+							path="/forgotpassword"
+							element={<ForgotPasswordScreen />}
+						/>
+					</Routes>
 
-				<Routes>
-					<Route
-						exact
-						path="/resetpassword/:resetToken"
-						element={<ResestPasswordScreen />}
-					/>
-				</Routes>
-				<Routes>
-					<Route exact path="/product/:id" element={<ProductDetailsScreen />} />
-				</Routes>
-				<Routes>
-					<Route exact path="/login" element={<SigninScreen />} />
-				</Routes>
-				<Routes>
-					<Route exact path="/signup" element={<SignupScreen />} />
-				</Routes>
-				<Routes>
-					<Route exact path="/admin" element={<AdminScreen />} />
-				</Routes>
+					<Routes>
+						<Route
+							exact
+							path="/resetpassword/:resetToken"
+							element={<ResestPasswordScreen />}
+						/>
+					</Routes>
+					<Routes>
+						<Route
+							exact
+							path="/product/:id"
+							element={<ProductDetailsScreen />}
+						/>
+					</Routes>
+					<Routes>
+						<Route exact path="/login" element={<SigninScreen />} />
+					</Routes>
+					<Routes>
+						<Route exact path="/signup" element={<SignupScreen />} />
+					</Routes>
+					<Routes>
+						<Route exact path="/admin" element={<Admin />} />
+					</Routes>
+					<Routes>
+						<Route exact path="/shipping" element={<ShippingScreen />} />
+					</Routes>
 
-				<Routes>
-					<Route exact path="/shipping" element={<ShippingScreen />} />
-				</Routes>
+					<Routes>
+						<Route exact path="/payment" element={<PayScreen />} />
+					</Routes>
 
-				<Routes>
-					<Route exact path="/payment" element={<PayScreen />} />
-				</Routes>
+					<Routes>
+						<Route
+							exact
+							path="/search/:searchProduct"
+							element={<SearchScreen />}
+						/>
+					</Routes>
 
-				<Routes>
-					<Route
-						exact
-						path="/search/:searchProduct"
-						element={<SearchScreen />}
-					/>
-				</Routes>
+					<Routes>
+						<Route exact path="/profile" element={<ProfileScreen />} />
+					</Routes>
 
-				<Routes>
-					<Route exact path="/profile" element={<ProfileScreen />} />
-				</Routes>
+					<Routes>
+						<Route
+							exact
+							path="/placeorder/:orderId"
+							element={<PlaceOrderScreen />}
+						/>
+					</Routes>
 
-				<Routes>
-					<Route
-						exact
-						path="/placeorder/:orderId"
-						element={<PlaceOrderScreen />}
-					/>
-				</Routes>
+					<Routes>
+						<Route exact path="/cart" element={<CartSreen />} />
+					</Routes>
 
-				<Routes>
-					<Route exact path="/cart" element={<CartSreen />} />
-				</Routes>
+					<Route path="*" element={<div></div>} />
+					<Route exact path="/admin" element={<div></div>} />
+					<Route exact path="/orders" element={<Orders />} />
+					<Route exact path="/admin/locations" element={<div></div>} />
+					<Route exact path="/admin/profile" element={<div></div>} />
 
-				<Routes>
-					<Route
-						exact
-						path="/admin/product/:id"
-						element={<EditProductScreen />}
-					/>
-				</Routes>
-			</main>
-		</Router>
+					<Routes>
+						<Route
+							exact
+							path="/admin/product/:id"
+							element={<EditProductScreen />}
+						/>
+					</Routes>
+				</main>
+			</Router>
+		</div>
 	);
 }
 

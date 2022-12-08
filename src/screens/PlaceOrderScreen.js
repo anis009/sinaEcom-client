@@ -15,6 +15,10 @@ const PlaceOrderScreen = () => {
 		dispatch(getSingleOrder(orderId));
 	}, [dispatch, orderId]);
 
+	if (loading) {
+		return <Loader></Loader>;
+	}
+
 	return (
 		<div>
 			<h1 className="text-left">ORDER: {orderId}</h1>
@@ -71,7 +75,7 @@ const PlaceOrderScreen = () => {
 									<div>
 										<h2 className="text-uppercase">Order Items</h2>
 										<ul class="list-group list-group-flush">
-											{order.orderItems.map((or) => (
+											{order.orderItems.map((order) => (
 												<li class="list-group-item">
 													<div className="place-order-items">
 														<div
@@ -79,7 +83,7 @@ const PlaceOrderScreen = () => {
 															style={{ display: "flex", fontSize: "18px" }}
 														>
 															<img
-																src={or.image}
+																src={`http://localhost:7070${order?.image}`}
 																alt=""
 																style={{
 																	width: "50px",
@@ -88,16 +92,16 @@ const PlaceOrderScreen = () => {
 																}}
 															/>
 															<Link
-																to={`/product/${or.product}`}
+																to={`/product/${order.product}`}
 																className="mx-2"
 																style={{ flex: "3" }}
 															>
-																<p>{or.name}</p>
+																<p>{order.name}</p>
 															</Link>
 														</div>
 														<p>
-															{`${or.qty} x ${or.price} = $${Number(
-																Number(or.qty) * Number(or.price)
+															{`${order.qty} x ${order.price} = $${Number(
+																Number(order.qty) * Number(order.price)
 															)}`}
 														</p>
 													</div>
@@ -135,7 +139,7 @@ const PlaceOrderScreen = () => {
 									<span>${order.totalPrice}</span>
 								</li>
 								<li class="list-group-item">
-									<button className="btn btn-primary btn-sm">
+									<button className="btn btn-dark btn-sm">
 										proceed to pay by {order.paymentMethod}
 									</button>
 								</li>
