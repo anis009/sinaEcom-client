@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import Loader from "../components/Loader";
 import { ADD_PRODUCT_REVIEW_RESET } from "../constants/productConstants";
-const CartSreen = () => {
+const CartScreen = () => {
 	const [cartItems, setCartItems] = useState([]);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -35,10 +35,10 @@ const CartSreen = () => {
 	}, 0);
 
 	return (
-		<div className="cart-box">
-			<header>
-				<h1 className="text-center text-uppercase ">cart</h1>
-			</header>
+		<div className="cart-box mx-3 min-height-80vh">
+			<div>
+				<h1 className="text-center text-uppercase text-light mt-2 ">cart</h1>
+			</div>
 			{cartItems && cartItems.length > 0 ? (
 				<div className="sub-cart-box row">
 					<div className="col-md-8">
@@ -66,7 +66,7 @@ const CartSreen = () => {
 											className="ml-2"
 											to={`/product/${product.product}`}
 										>
-											<b className="mx-2">{product.name} </b>
+											<b className="mx-2 text-light">{product.name} </b>
 										</Link>
 
 										<p className="" style={{ flex: "1" }}>
@@ -89,11 +89,13 @@ const CartSreen = () => {
 													onChange={(e) =>
 														addToCartHandler(e.target.value, product.product)
 													}
-													className=""
+													className="bg-dark"
 													style={{ cursor: "pointer" }}
 												>
 													{[...Array(product.countInStock).keys()].map((x) => (
-														<option value={x + 1}>{x + 1}</option>
+														<option className="bg-dark" value={x + 1}>
+															{x + 1}
+														</option>
 													))}
 												</select>
 											</b>
@@ -114,7 +116,7 @@ const CartSreen = () => {
 					<div className="col-md-4 mt-md-0 mt-2">
 						<div class="list-group">
 							<div className="list-group-item">
-								<h1 className="">Total Items : {totalItems}</h1>
+								<h1 className="text-light">Total Items : {totalItems}</h1>
 							</div>
 							<div className="list-group-item">
 								<p className="">
@@ -142,4 +144,4 @@ const CartSreen = () => {
 	);
 };
 
-export default CartSreen;
+export default CartScreen;

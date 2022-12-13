@@ -9,24 +9,27 @@ import HomeScreen from "./screens/HomeScreen";
 import AdminScreen from "./screens/AdminScreen";
 import EditProductScreen from "./screens/admin/EditProductScreen";
 import ProductDetailsScreen from "./screens/ProductDetailsScreen";
-import CartSreen from "./screens/CartSreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import PayScreen from "./screens/PayScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import ProfileScreen from "./screens/Profile/ProfileScreen";
 import SearchScreen from "./screens/SearchScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
 import ResestPasswordScreen from "./screens/ResestPasswordScreen";
 import Admin from "./Admin/Admin";
 import Orders from "./Admin/pages/Orders";
+import { RouterProvider } from "react-router-dom/dist";
+import router from "./Router/Routes/Routes";
+import { Toaster } from "react-hot-toast";
 
 function App() {
 	return (
 		<div style={{ maxWidth: 1450, margin: "auto" }}>
-			<Router>
-				<Routes>
-					<Navbar className="m-3" />
-				</Routes>
+			<RouterProvider router={router}></RouterProvider>
+			<Toaster></Toaster>
+
+			{/* <Router>
+				<Navbar className="m-3" />
 				<main className="">
 					<Routes>
 						<Route exact path="/" element={<HomeScreen />} />
@@ -94,11 +97,13 @@ function App() {
 						<Route exact path="/cart" element={<CartSreen />} />
 					</Routes>
 
-					<Route path="*" element={<div></div>} />
-					<Route exact path="/admin" element={<div></div>} />
-					<Route exact path="/orders" element={<Orders />} />
-					<Route exact path="/admin/locations" element={<div></div>} />
-					<Route exact path="/admin/profile" element={<div></div>} />
+					<Routes>
+						<Route path="*" element={<div></div>} />
+						<Route exact path="/admin" element={<div></div>} />
+						<Route exact path="/orders" element={<Orders />} />
+						<Route exact path="/admin/locations" element={<div></div>} />
+						<Route exact path="/admin/profile" element={<div></div>} />
+					</Routes>
 
 					<Routes>
 						<Route
@@ -108,7 +113,7 @@ function App() {
 						/>
 					</Routes>
 				</main>
-			</Router>
+			</Router> */}
 		</div>
 	);
 }

@@ -21,6 +21,50 @@
 	max-width: 80%;
 	margin: 0px auto 0px 0px;
 }
+.product-details-box {
+	background-color: var(--primary) !important;
+}
+
+.list-group-item {
+	background-color: var(--primary);
+	color: white;
+}
+
+.create-review-box {
+	background-color: var(--primary);
+}
+.review-box {
+	background-color: var(--primary);
+	padding: 5px;
+	margin: 5px 0px;
+}
+
+.show-review-sub-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.show-review-sub-box p {
+	font-size: 16px;
+	color: white;
+	font-weight: 500;
+}
+
+.review-profile-img {
+	width: 40px !important;
+	height: 40px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	background-color: #272424;
+	color: #fff;
+	margin-right: 2px;
+	font-size: 14px;
+	border: 2px solid rebeccapurple;
+	text-transform: uppercase;
+}
 
 @media (max-width: 950px) {
 	.details-box .left-side-img {

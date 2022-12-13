@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { updateUserAction } from "../actions/userActions";
-import AlertMessage from "../components/Alert";
+import { updateUserAction } from "../../actions/userActions";
+import AlertMessage from "../../components/Alert";
 
 const UserScreen = () => {
 	const userSignup = useSelector((state) => state.userSignup);
@@ -139,8 +139,8 @@ const UserScreen = () => {
 	}
 
 	return (
-		<div>
-			<h1 className="text-center mt-2">USER INFORMATION</h1>
+		<div className="min-height-80vh">
+			<h1 className="text-center mt-2 text-light">USER INFORMATION</h1>
 			{updateError && (
 				<div
 					style={{ width: "400px", textAlign: "center", margin: "auto" }}
@@ -152,34 +152,37 @@ const UserScreen = () => {
 
 			<div className="user-information">
 				<div className="user-information-box text-capitalize">
-					<p>
-						<b className="mr-2">Name:</b>
+					<p className="text-light">
+						<b className="mr-2 text-light">Name:</b>
 						{userName}
 					</p>
 					<p>
-						<b className="mr-2">Email:</b>
-						<a href={`mailto:${userEmail}`} className="user-link-hover">
+						<b className="mr-2 text-light">Email:</b>
+						<a
+							href={`mailto:${userEmail}`}
+							className=" text-light user-link-hover"
+						>
 							{" "}
 							{userEmail.toLowerCase()}
 						</a>
 					</p>
 					{shippingAddress && (
 						<>
-							<p>
-								<b className="mr-2">City:</b>
+							<p className="text-light">
+								<b className="mr-2 text-light">City:</b>
 								{userCity}
 							</p>
 
-							<p>
-								<b className="mr-2">Addres:</b>
+							<p className="text-light">
+								<b className="mr-2 text-light">Addres:</b>
 								{userAddress}
 							</p>
-							<p>
-								<b className="mr-2">postalcode:</b>
+							<p className="text-light">
+								<b className="mr-2 text-light">postalcode:</b>
 								{userPostalCode}
 							</p>
-							<p>
-								<b className="mr-2">Country:</b>
+							<p className="text-light">
+								<b className="mr-2 text-light">Country:</b>
 								{userCountry}
 							</p>
 						</>
@@ -190,13 +193,13 @@ const UserScreen = () => {
 					/>
 					<div>
 						<button
-							className="btn btn-dark mr-2 btn-sm mb-2"
+							className="btn btn-success mr-2 text-light btn-sm mb-2"
 							onClick={() => setModalShow(true)}
 						>
 							edit profile
 						</button>
 						<button
-							className="btn btn-dark btn-sm mb-2"
+							className="btn btn-success btn-sm mb-2"
 							onClick={editPasswordHandler}
 						>
 							edit password

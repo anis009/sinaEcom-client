@@ -1,12 +1,12 @@
 import React from "react";
-
+// import { FaStar } from "react-icons/fa";
 const Rating = ({ rating, numReviews }) => {
 	rating = Number(rating);
 	return (
-		<div className="ratingBox">
+		<div className="ratingBox text-light">
 			<span className="">
 				{rating >= 1 ? (
-					<img src="/images/star-filled.png" alt="" />
+					<img src="/images/star-filled.png" className="text-ligh" alt="" />
 				) : rating >= 0.5 ? (
 					<img src="/images/star-half-empty.png" alt="" />
 				) : (

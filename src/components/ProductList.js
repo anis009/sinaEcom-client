@@ -14,6 +14,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const ProductList = () => {
+	console.log("sina");
 	const loadingStyle = {
 		display: "flex",
 		justifyContent: "center",
@@ -79,7 +80,9 @@ const ProductList = () => {
 				<>
 					<div>
 						<div>
-							<h1 className="top-rated-header mt-2">Top Rated Products</h1>
+							<h1 className="top-rated-header mt-2 text-light">
+								Top Rated Products
+							</h1>
 							<div>
 								<motion.div ref={carousel} className="carousel">
 									<motion.div
@@ -113,8 +116,8 @@ const ProductList = () => {
 						</div>
 					</div>
 
-					<h1 className="latest-product-header">Latest Products</h1>
-					<div className="product-box">
+					<h1 className="latest-product-header text-light">Latest Products</h1>
+					<div className="product-box" style={{ backgroundColor: "#001524" }}>
 						{products &&
 							products.products.map((product) => (
 								<Product product={product} key={product._id} />

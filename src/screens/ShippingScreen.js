@@ -51,27 +51,39 @@ const ShippingScreen = () => {
 		navigate("/payment");
 	};
 	return (
-		<div>
+		<div className="" style={{ minHeight: "73vh" }}>
 			<ol className="breadcrumb">
 				<li className="breadcrumb-item ">
-					<Link to="/">Home</Link>
+					<Link className="text-light" to="/">
+						Home
+					</Link>
 				</li>
 				<li className="breadcrumb-item ">
-					<Link to="/login">Signin</Link>
+					<Link to="/login" className="text-light">
+						Signin
+					</Link>
 				</li>
 				<li className="breadcrumb-item active" aria-current="page">
-					<Link to="/shipping">Shipping</Link>
+					<Link to="/shipping" className="text-light">
+						Shipping
+					</Link>
 				</li>
 
 				<li className="breadcrumb-item active" aria-current="page">
-					<Link to="/payment">Payment</Link>
+					<Link to="/payment" className="text-light">
+						Payment
+					</Link>
 				</li>
 
 				<li className="breadcrumb-item active" aria-current="page">
-					<Link to="/payment">Placeorder</Link>
+					<Link to="/payment" className="text-light">
+						Placeorder
+					</Link>
 				</li>
 			</ol>
-			<h1 className="text-center mb-3 shipping-header">Shipping Address</h1>
+			<h1 className="text-center mb-3 shipping-header text-light">
+				Shipping Address
+			</h1>
 			<div className="shipping-box">
 				<form className="form" onSubmit={submitHandler}>
 					<div className="form-group">
@@ -118,7 +130,7 @@ const ShippingScreen = () => {
 						/>
 					</div>
 
-					<button type="submit" className="">
+					<button type="submit" className="btn btn-sm btn-success">
 						continue
 					</button>
 				</form>

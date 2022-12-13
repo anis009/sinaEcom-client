@@ -53,16 +53,22 @@ const PayScreen = () => {
 	};
 
 	return (
-		<div>
+		<div className="" style={{ minHeight: "75vh" }}>
 			<ol className="breadcrumb">
 				<li className="breadcrumb-item ">
-					<Link to="/">Home</Link>
+					<Link to="/" className="text-light">
+						Home
+					</Link>
 				</li>
 				<li className="breadcrumb-item ">
-					<Link to="/login">Signin</Link>
+					<Link to="/login" className="text-light">
+						Signin
+					</Link>
 				</li>
 				<li className="breadcrumb-item" aria-current="page">
-					<Link to="/shipping">Shipping</Link>
+					<Link to="/shipping" className="text-light">
+						Shipping
+					</Link>
 				</li>
 
 				<li className="breadcrumb-item active" aria-current="page">
@@ -70,19 +76,23 @@ const PayScreen = () => {
 				</li>
 
 				<li className="breadcrumb-item active" aria-current="page">
-					<Link to="/payment">Placeorder</Link>
+					<Link to="/payment" className="text-light">
+						Placeorder
+					</Link>
 				</li>
 			</ol>
 
-			<h1 className="text-center my-4 py-3">Select your Payment method</h1>
+			<h1 className="text-center my-4 py-3 text-light">
+				Select your Payment method
+			</h1>
 			{loading ? (
 				<div style={{ display: "flex", justifyContent: "center" }}>
 					<Loader />
 				</div>
 			) : (
-				<div>
+				<div className="pb-3">
 					{error && <Message color="danger">{error}</Message>}
-					<form className="payment-box" onSubmit={submitHandler}>
+					<form className="payment-box text-light" onSubmit={submitHandler}>
 						<div class="radio">
 							<label>
 								<input
@@ -142,7 +152,7 @@ const PayScreen = () => {
 						</div>
 						<button
 							type="submit"
-							className="px-2 py-1"
+							className="px-2 py-1 btn btn-success btn-sm"
 							id="payButton"
 							disabled={!name}
 						>

@@ -1,3 +1,15 @@
+/* font szie */
+.font-size-20 {
+	font-size: 20px !important;
+}
+.font-size-18 {
+	font-size: 18px !important;
+}
+.font-size-16 {
+	font-size: 16px !important;
+}
+
+/* font-weight */
 .font-bold {
 	font-weight: bold;
 }
@@ -5,10 +17,20 @@
 .font-semibold {
 	font-weight: 600;
 }
+
+/* background */
+
+.bg-success {
+	background-color: green !important;
+}
+
 .h-100vh {
 	height: 80vh;
 }
 
 .h-100vw {
 	height: 100vw;
+}
+.min-height-80vh {
+	min-height: 80vh;
 }

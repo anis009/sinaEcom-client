@@ -20,8 +20,8 @@ const PlaceOrderScreen = () => {
 	}
 
 	return (
-		<div>
-			<h1 className="text-left">ORDER: {orderId}</h1>
+		<div className="m-3">
+			<h1 className="text-left text-light">ORDER: {orderId}</h1>
 			<hr />
 			{loading ? (
 				<div style={{ display: "flex", justifyContent: "center" }}>
@@ -32,18 +32,21 @@ const PlaceOrderScreen = () => {
 			) : (
 				order && (
 					<div className="row">
-						<div className="col-md-8">
-							<ul class="list-group list-group-flush">
+						<div className="col-md-8 ">
+							<ul class="list-group rounded-3 list-group-flush">
 								<li class="list-group-item">
 									<div style={{ width: "100%" }}>
-										<h2 className="text-uppercase">Shipping</h2>
+										<h2 className="text-uppercase text-light">Shipping</h2>
 										<p>
 											<strong className="mr-1">Name:</strong>
 											{order.user.name}
 										</p>
-										<p>
+										<p className="text-light">
 											<strong className="mr-1">Email:</strong>
-											<a href={`mailto:${order.user.email}`}>
+											<a
+												className="text-light"
+												href={`mailto:${order.user.email}`}
+											>
 												{order.user.email}
 											</a>
 										</p>
@@ -61,10 +64,14 @@ const PlaceOrderScreen = () => {
 								</li>
 								<li class="list-group-item">
 									<div style={{ width: "100%" }}>
-										<h2 className="text-uppercase">Payment Method</h2>
+										<h2 className="text-uppercase text-light">
+											Payment Method
+										</h2>
 										<p>
 											<strong>Method: </strong>
-											{order.paymentMethod}
+											<b className="badge badge-primary">
+												{order.paymentMethod}
+											</b>
 										</p>
 										{!order.isPaid && (
 											<AlertMessage type="error">Not Paid</AlertMessage>
@@ -73,7 +80,7 @@ const PlaceOrderScreen = () => {
 								</li>
 								<li class="list-group-item">
 									<div>
-										<h2 className="text-uppercase">Order Items</h2>
+										<h2 className="text-uppercase text-light">Order Items</h2>
 										<ul class="list-group list-group-flush">
 											{order.orderItems.map((order) => (
 												<li class="list-group-item">
@@ -96,7 +103,7 @@ const PlaceOrderScreen = () => {
 																className="mx-2"
 																style={{ flex: "3" }}
 															>
-																<p>{order.name}</p>
+																<p className="text-light">{order.name}</p>
 															</Link>
 														</div>
 														<p>
@@ -112,10 +119,10 @@ const PlaceOrderScreen = () => {
 								</li>
 							</ul>
 						</div>
-						<div className="col-md-4">
-							<ul class="list-group list-group-flush">
+						<div className="col-md-4 rounded-3">
+							<ul class="list-group rounded-3 list-group-flush">
 								<li class="list-group-item">
-									<h1 className="text-uppercase">Order Summary</h1>
+									<h1 className="text-uppercase text-light">Order Summary</h1>
 								</li>
 								<li class="list-group-item">
 									<strong>Items</strong>
@@ -139,7 +146,7 @@ const PlaceOrderScreen = () => {
 									<span>${order.totalPrice}</span>
 								</li>
 								<li class="list-group-item">
-									<button className="btn btn-dark btn-sm">
+									<button className="btn btn-success btn-sm">
 										proceed to pay by {order.paymentMethod}
 									</button>
 								</li>
