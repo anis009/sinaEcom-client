@@ -24,31 +24,57 @@ const MyOrdersScreen = () => {
 					<Spin />
 				</div>
 			) : error ? (
-				<AlertMessage type="error">{error}</AlertMessage>
+				<div className="mx-5">
+					<AlertMessage type="error">{error}</AlertMessage>
+				</div>
 			) : (
-				<div style={{ overflow: "auto" }} className="p-3">
+				<div
+					style={{ overflow: "auto" }}
+					className="p-3  rounded-lg myorder-box"
+				>
 					<table className="table table-bordered">
 						<tr className="text-center text-light">
 							<th scope="col">#</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								totalItems
 							</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								totalPrice
 							</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								orderedAt
 							</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								isDelivered
 							</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								paymentMethod
 							</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								pay
 							</th>
-							<th scope="col" className="text-success text-center font-size-18">
+							<th
+								scope="col"
+								className="text-light text-capitalize text-center font-size-18"
+							>
 								cancelOrder
 							</th>
 						</tr>
@@ -84,9 +110,7 @@ const MyOrdersScreen = () => {
 										</div>
 									) : (
 										<div>
-											<button disabled className="btn btn-success btn-sm">
-												pay_now
-											</button>
+											<span className="badge-success badge">paid</span>
 										</div>
 									)}
 								</td>

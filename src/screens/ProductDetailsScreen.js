@@ -112,7 +112,7 @@ const ProductDetailsScreen = () => {
 									/> */}
 								</div>
 								<div className="col-lg-6 rounded-3">
-									<ul class="list-group rounded-3 product-details-box bg-black  list-group-flush">
+									<ul className="list-group rounded-3 product-details-box bg-black  list-group-flush">
 										<li className="list-group-item">
 											<h3 className="text-light text-break">{product.name}</h3>
 										</li>
@@ -130,7 +130,7 @@ const ProductDetailsScreen = () => {
 												numReviews={product.numReviews}
 											/>
 										</li>
-										<li class="list-group-item">
+										<li className="list-group-item">
 											<b>
 												Status:{" "}
 												{Number(product.countInStock) > 0 ? (
@@ -142,7 +142,7 @@ const ProductDetailsScreen = () => {
 												)}
 											</b>
 										</li>
-										<li class="list-group-item">
+										<li className="list-group-item">
 											<b>Quantity: </b>
 											<select
 												name=""
@@ -158,7 +158,7 @@ const ProductDetailsScreen = () => {
 												))}
 											</select>
 										</li>
-										<li class="list-group-item">
+										<li className="list-group-item">
 											<button
 												className="btn btn-sm btn-success"
 												onClick={addToCartHandler}

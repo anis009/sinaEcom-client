@@ -6,3 +6,13 @@
 	color: white !important;
 	text-shadow: 0 0 0.25px currentcolor;
 }
+.myorder-box {
+	background-color: #14213d;
+	margin: 10px;
+}
+
+.user-profile-box {
+	background-color: #14213d;
+	margin: 20px;
+	padding: 20px;
+}

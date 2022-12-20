@@ -22,13 +22,17 @@ import {
 	getOrderByUserReducer,
 	getSingleOrderReducer,
 } from "./reducers/orderReducers";
+import { getAllCategoriesReducer } from "./reducers/categoriesReducers";
+import { createPayReducer } from "./reducers/payReducers";
 const reducer = combineReducers({
 	userSignup: userRegisterReducer,
 	userLogin: userLoginReducer,
 	updateUser: userUpdateReducer,
 	cart: cartReducer,
+	categories: getAllCategoriesReducer,
 	order: createOrderReducer,
 	userOrder: getOrderByUserReducer,
+	payment: createPayReducer,
 	getSingleOrder: getSingleOrderReducer,
 	sentToken: sentTokenReducer,
 	resetPassword: resetPasswordReducer,

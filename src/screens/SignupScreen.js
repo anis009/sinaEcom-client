@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../actions/userActions";
 import Message from "../components/Message";
@@ -89,7 +88,7 @@ const SignupScreen = () => {
 	return (
 		<form onSubmit={submitHandler} className="signup-box">
 			<div className="form-container">
-				<h1 className="text-2xl uppercase py-2">Register</h1>
+				<h1 className="text-2xl uppercase py-2 text-light">Register</h1>
 				{loading && <Loader />}
 				{error && (
 					<div className="mx-3">
@@ -97,7 +96,9 @@ const SignupScreen = () => {
 					</div>
 				)}
 				<div className={classesName}>
-					<label htmlFor="name">Your Name</label>
+					<label htmlFor="name" className="text-light mb-0">
+						Name:
+					</label>
 					<input
 						type="text"
 						id="name"
@@ -111,7 +112,9 @@ const SignupScreen = () => {
 					)}
 				</div>
 				<div className={classesName}>
-					<label htmlFor="email">Your Email</label>
+					<label htmlFor="email" className="text-light mb-0">
+						Email:
+					</label>
 					<input
 						type="email"
 						name="email"
@@ -125,7 +128,9 @@ const SignupScreen = () => {
 					)}
 				</div>
 				<div className={classesName}>
-					<label htmlFor="email">Your Password</label>
+					<label htmlFor="email" className="text-light mb-0">
+						Password:
+					</label>
 					<input
 						type="password"
 						name="password"
@@ -141,7 +146,9 @@ const SignupScreen = () => {
 					)}
 				</div>
 				<div className={classesName}>
-					<label htmlFor="email">Your Confirm Password</label>
+					<label htmlFor="email" className="text-light mb-0">
+						Confirm Password:
+					</label>
 					<input
 						type="password"
 						name="password"
@@ -157,13 +164,17 @@ const SignupScreen = () => {
 					)}
 				</div>
 				<div className="form-actions pt-3">
-					<button type="submit" disabled={!formIsValid}>
-						SignUp
+					<button
+						type="submit"
+						className="btn btn-sm btn-primary px-4 fs-5"
+						disabled={!formIsValid}
+					>
+						Signup
 					</button>
 				</div>
 				<span className="pb-2 my-2">
-					Already have an Account?{" "}
-					<Link to="/login" className=" text-indigo-500">
+					<span className="text-light">Already have an account ?</span>
+					<Link to="/login" className="text-primary ms-2">
 						Login
 					</Link>
 				</span>

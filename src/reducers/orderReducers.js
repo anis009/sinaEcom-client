@@ -8,6 +8,7 @@ import {
 	GET_USER_ALL_ORDER_FAIL,
 	GET_USER_ALL_ORDER_REQUEST,
 	GET_USER_ALL_ORDER_SUCCESS,
+	CREATE_ORDER_RESET,
 } from "../constants/orderConstant";
 
 export const createOrderReducer = (state = {}, action) => {
@@ -26,6 +27,8 @@ export const createOrderReducer = (state = {}, action) => {
 				loading: false,
 				error: action.payload,
 			};
+		case CREATE_ORDER_RESET:
+			return {};
 		default:
 			return state;
 	}

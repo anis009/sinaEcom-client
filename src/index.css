@@ -18,6 +18,7 @@ body {
 	background-color: #001524 !important;
 	margin: 0;
 	padding: 0;
+	position: relative;
 }
 
 a:active,
@@ -45,6 +46,12 @@ a.profile-link {
 }
 ul {
 	list-style-type: none;
+}
+.slick-dots li button::before {
+	color: white !important;
+}
+
+.slick-prev {
 }
 
 .loadingBox {
@@ -97,7 +104,7 @@ ul {
 }
 
 .shipping-box {
-	width: 40%;
+	width: 100%;
 	margin: auto;
 }
 
@@ -115,26 +122,10 @@ ul {
 	padding: 5px 3px;
 	border-radius: 5px;
 	box-shadow: 0px 0px 2px grey inset;
+	text-indent: 10px;
 }
 
-/* .shipping-box .form button,
-#payButton {
-	padding: 2px 5px;
-	border-radius: 2px;
-	outline: none;
-	border: 1px solid black;
-	background-color: #fff;
-	transition: 0.2s ease-in-out;
-}
-
-.shipping-box .form button:hover,
-#payButton:hover {
-	color: white;
-	background-color: black;
-} */
-
-.shipping-box .form .form-group input,
-#payButton {
+.shipping-box .form .form-group input {
 	outline: none;
 	border: 1px solid black;
 	color: black;
@@ -202,26 +193,19 @@ ul {
 	align-items: center;
 	min-height: 64vh;
 	border-radius: 10px;
-	margin-bottom: 10px;
+	background-color: #14213d;
+	margin: 30px 0px 50px 0px;
+}
+
+button:disabled,
+button[disabled] {
+	border: 1px solid red;
+	background-color: red;
+	color: white;
 }
 
 .form-actions {
 	text-align: right;
-}
-
-.form-actions button {
-	margin: 5px 0px;
-	padding: 5px 10px;
-	color: white;
-	background-color: black;
-	cursor: pointer;
-	border-radius: 10px;
-}
-
-.form-actions button:active,
-.form-actions button:focus,
-.form-actions button:hover {
-	background-color: rgb(26, 22, 22);
 }
 
 .add-product-btn-box button {

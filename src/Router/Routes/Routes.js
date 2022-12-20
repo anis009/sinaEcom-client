@@ -1,6 +1,4 @@
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-import Orders from "../../Admin/pages/Orders";
-import Navbar from "../../components/Navbar";
 import AdminLayout from "../../Layout/AdminLayout/AdminLayout";
 import Main from "../../Layout/Main/Main";
 import CartSreen from "../../screens/CartScreen";

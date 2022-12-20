@@ -1,0 +1,20 @@
+.ant-alert-message {
+	color: brown !important;
+	font-size: 18px !important;
+}
+.ant-alert,
+.ant-alert-error {
+	width: 100% !important;
+}
+
+.ant-alert-error {
+	background-color: rgba(155, 42, 26, 0.1);
+	border: 1px solid rgb(165, 42, 42) !important;
+}
+.anticon svg {
+	top: 50% !important;
+	transform: translateY(-50%);
+	font-size: large;
+	right: 2px;
+	color: red;
+}

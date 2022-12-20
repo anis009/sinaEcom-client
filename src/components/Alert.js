@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert } from "antd";
+import "./Alert.css";
 
 const AlertMessage = ({ children, type }) => {
 	const [visible, setVisible] = useState(true);

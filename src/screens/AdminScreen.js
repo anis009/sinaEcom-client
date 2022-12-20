@@ -50,7 +50,7 @@ const AdminScreen = () => {
 						</span>
 					</a>
 
-					<div class="collapse multi-collapse" id="multiCollapseExample1">
+					<div className="collapse multi-collapse" id="multiCollapseExample1">
 						<ul className="ml-3" style={{ borderLeft: "2px solid black" }}>
 							<li className="ml-1">
 								<p className="mb-1">Users</p>
@@ -83,7 +83,7 @@ const AdminScreen = () => {
 						</span>
 					</a>
 
-					<div class="collapse multi-collapse" id="multiCollapseExample">
+					<div className="collapse multi-collapse" id="multiCollapseExample">
 						<ul className="ml-3" style={{ borderLeft: "2px solid black" }}>
 							<li className="ml-1 mb-2">
 								<span

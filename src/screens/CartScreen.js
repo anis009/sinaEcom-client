@@ -42,7 +42,7 @@ const CartScreen = () => {
 			{cartItems && cartItems.length > 0 ? (
 				<div className="sub-cart-box row">
 					<div className="col-md-8">
-						<div class="list-group">
+						<div className="list-group">
 							{cartItems.map((product) => (
 								<div className="list-group-item">
 									<div
@@ -69,7 +69,7 @@ const CartScreen = () => {
 											<b className="mx-2 text-light">{product.name} </b>
 										</Link>
 
-										<p className="" style={{ flex: "1" }}>
+										<p className="mb-0" style={{ flex: "1" }}>
 											<b className="badge badge-primary p-2 mx-2">
 												{" "}
 												${product.price}
@@ -79,7 +79,7 @@ const CartScreen = () => {
 												<b className="mb-1">{product.qty}</b>
 											</span>
 										</p>
-										<p className="" style={{ flex: "1" }}>
+										<p className="mb-0" style={{ flex: "1" }}>
 											<b>
 												qty:{" "}
 												<select
@@ -114,7 +114,7 @@ const CartScreen = () => {
 					</div>
 
 					<div className="col-md-4 mt-md-0 mt-2">
-						<div class="list-group">
+						<div className="list-group">
 							<div className="list-group-item">
 								<h1 className="text-light">Total Items : {totalItems}</h1>
 							</div>

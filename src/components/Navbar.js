@@ -63,7 +63,7 @@ const Navbar = () => {
 								id=""
 								placeholder="search..."
 							/>
-							<button type="submit" classNameName="">
+							<button type="submit" className="">
 								search
 							</button>
 						</form>

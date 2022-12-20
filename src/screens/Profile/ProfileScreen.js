@@ -11,7 +11,7 @@ const ProfileScreen = () => {
 	console.log(userInfo);
 	return (
 		<div>
-			<Tabs defaultActiveKey="1" centered>
+			<Tabs defaultActiveKey="2" centered>
 				<TabPane className="text-light" tab="user" key="1">
 					<UserScreen />
 				</TabPane>

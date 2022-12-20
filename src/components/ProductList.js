@@ -34,7 +34,7 @@ const ProductList = () => {
 	const getTopProducts = useSelector((state) => state.getTopProducts);
 	const { loading, error, products } = getProducts;
 	const {
-		loaing: topProductLoading,
+		loading: topProductLoading,
 		error: topProductsError,
 		products: topProducts,
 	} = getTopProducts;
@@ -50,10 +50,6 @@ const ProductList = () => {
 			type: ADD_PRODUCT_REVIEW_RESET,
 		});
 	}, [dispatch]);
-
-	if (loading) {
-		return <Loader></Loader>;
-	}
 
 	const numsArray = [];
 	let pageSize;
@@ -78,44 +74,6 @@ const ProductList = () => {
 				<Message color="danger">{error}</Message>
 			) : (
 				<>
-					<div>
-						<div>
-							<h1 className="top-rated-header mt-2 text-light">
-								Top Rated Products
-							</h1>
-							<div>
-								<motion.div ref={carousel} className="carousel">
-									<motion.div
-										drag="x"
-										dragConstraints={{ right: 0, left: -width }}
-										whileTap={{ cursor: "grabbing" }}
-										className="inner-carousel"
-									>
-										{topProducts &&
-											topProducts.map((pr) => {
-												return (
-													<div>
-														<motion.div className="item" key={pr.name}>
-															<img
-																src={`http://localhost:7070${pr.image[0].name}`}
-																alt=""
-															/>
-															<Link
-																to={`/product/${pr._id}`}
-																className="carousel-view-details btn btn-lg"
-															>
-																view details
-															</Link>
-														</motion.div>
-													</div>
-												);
-											})}
-									</motion.div>
-								</motion.div>
-							</div>
-						</div>
-					</div>
-
 					<h1 className="latest-product-header text-light">Latest Products</h1>
 					<div className="product-box" style={{ backgroundColor: "#001524" }}>
 						{products &&
@@ -124,8 +82,8 @@ const ProductList = () => {
 							))}
 					</div>
 					<ul className="pagination-box my-5">
-						{numsArray.map((item) => (
-							<li>
+						{numsArray.map((item, index) => (
+							<li className="" key={index}>
 								<p
 									className={
 										Number(item) === Number(products.pageNumber) ? "active" : ""

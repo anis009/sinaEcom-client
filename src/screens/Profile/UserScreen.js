@@ -140,70 +140,75 @@ const UserScreen = () => {
 
 	return (
 		<div className="min-height-80vh">
-			<h1 className="text-center mt-2 text-light">USER INFORMATION</h1>
-			{updateError && (
-				<div
-					style={{ width: "400px", textAlign: "center", margin: "auto" }}
-					className="mb-2"
-				>
-					<AlertMessage type="error">{updateError}</AlertMessage>
-				</div>
-			)}
+			<div className="user-profile-box">
+				{updateError && (
+					<div
+						style={{ width: "400px", textAlign: "center", margin: "auto" }}
+						className="mb-2"
+					>
+						<AlertMessage type="error">{updateError}</AlertMessage>
+					</div>
+				)}
 
-			<div className="user-information">
-				<div className="user-information-box text-capitalize">
-					<p className="text-light">
-						<b className="mr-2 text-light">Name:</b>
-						{userName}
-					</p>
-					<p>
-						<b className="mr-2 text-light">Email:</b>
-						<a
-							href={`mailto:${userEmail}`}
-							className=" text-light user-link-hover"
-						>
-							{" "}
-							{userEmail.toLowerCase()}
-						</a>
-					</p>
-					{shippingAddress && (
-						<>
-							<p className="text-light">
-								<b className="mr-2 text-light">City:</b>
-								{userCity}
-							</p>
+				<h1 className="text-center mt-2 text-light w-50 border-bottom mx-auto">
+					USER INFORMATION
+				</h1>
 
-							<p className="text-light">
-								<b className="mr-2 text-light">Addres:</b>
-								{userAddress}
-							</p>
-							<p className="text-light">
-								<b className="mr-2 text-light">postalcode:</b>
-								{userPostalCode}
-							</p>
-							<p className="text-light">
-								<b className="mr-2 text-light">Country:</b>
-								{userCountry}
-							</p>
-						</>
-					)}
-					<MyVerticallyCenteredModal
-						show={modalShow}
-						onHide={() => setModalShow(false)}
-					/>
-					<div>
-						<button
-							className="btn btn-success mr-2 text-light btn-sm mb-2"
-							onClick={() => setModalShow(true)}
-						>
-							edit profile
-						</button>
-						<button
-							className="btn btn-success btn-sm mb-2"
-							onClick={editPasswordHandler}
-						>
-							edit password
-						</button>
+				<div className="user-information">
+					<div className="user-information-box text-capitalize">
+						<p className="text-light">
+							<b className="mr-2 text-light">Name:</b>
+							{userName}
+						</p>
+						<p>
+							<b className="mr-2 text-light text-lowercase">Email:</b>
+							<a
+								href={`mailto:${userEmail}`}
+								className=" text-light text-lowercase user-link-hover"
+							>
+								{" "}
+								{userEmail.toLowerCase()}
+							</a>
+						</p>
+						{shippingAddress && (
+							<>
+								<p className="text-light">
+									<b className="mr-2 text-light">City:</b>
+									{userCity}
+								</p>
+
+								<p className="text-light">
+									<b className="mr-2 text-light">Addres:</b>
+									{userAddress}
+								</p>
+								<p className="text-light">
+									<b className="mr-2 text-light">postalcode:</b>
+									{userPostalCode}
+								</p>
+								<p className="text-light">
+									<b className="mr-2 text-light">Country:</b>
+									{userCountry}
+								</p>
+							</>
+						)}
+						<MyVerticallyCenteredModal
+							show={modalShow}
+							onHide={() => setModalShow(false)}
+						/>
+						<div>
+							<button
+								className="btn btn-success mr-2 text-light btn-sm mb-2"
+								onClick={() => setModalShow(true)}
+							>
+								edit profile
+							</button>
+							<button
+								className="btn btn-success btn-sm mb-2"
+								onClick={editPasswordHandler}
+							>
+								edit password
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

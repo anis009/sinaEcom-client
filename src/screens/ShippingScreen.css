@@ -1,0 +1,16 @@
+.shipping-box-1 {
+	background-color: #14213d;
+	padding: 20px;
+	width: 50%;
+	margin: auto;
+}
+
+.payment-box {
+	background-color: #14213d;
+	width: 50%;
+	margin: auto;
+}
+.radio {
+	display: flex;
+	align-items: center;
+}

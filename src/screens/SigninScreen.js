@@ -76,14 +76,16 @@ const SigninScreen = () => {
 			<form onSubmit={submitHandler} className="signup-box">
 				{loading && <Loader />}
 				<div className="form-container">
-					<h1 className="text-2xl capitalize">Login</h1>
+					<h1 className="text-2xl capitalize text-light">Login</h1>
 					{error && (
 						<div className="mx-5 mb-2">
 							<AlertMessage type="error">{error}</AlertMessage>
 						</div>
 					)}
 					<div className={classesName}>
-						<label htmlFor="email">Your Email</label>
+						<label htmlFor="email" className="text-light mb-0">
+							Email:
+						</label>
 						<input
 							type="email"
 							name="email"
@@ -98,7 +100,9 @@ const SigninScreen = () => {
 						)}
 					</div>
 					<div className={classesName}>
-						<label htmlFor="email">Your Password</label>
+						<label htmlFor="email" className="text-light mb-0">
+							Password:
+						</label>
 						<input
 							type="password"
 							name="password"
@@ -114,23 +118,23 @@ const SigninScreen = () => {
 							</p>
 						)}
 					</div>
-					<div className="form-actions">
+					<div className="form-actions mb-2">
 						<button
 							type="submit"
-							className="btn btn-dark btn-sm mt-3"
+							className="btn btn-primary fs-5 px-4 btn-sm mt-3"
 							disabled={!formIsValid}
 						>
-							LogIn
+							Login
 						</button>
 					</div>
 
 					<span className="pb-3">
-						Create an Account{" "}
-						<Link to="/signup" className="mr-2 register-link">
+						<span className="text-light fs-5">Create an account </span>
+						<Link to="/signup" className="mx-2 text-primary register-link">
 							Register
 						</Link>
-						or{" "}
-						<Link to="/forgotpassword" className="register-link">
+						<span className="text-light">or </span>
+						<Link to="/forgotpassword" className="register-link text-primary">
 							Forget Password
 						</Link>
 					</span>

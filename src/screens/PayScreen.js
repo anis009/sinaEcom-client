@@ -5,6 +5,7 @@ import { createOrder } from "../actions/orderActons";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { removeAllFromCart } from "../actions/cartActions";
+import "./ShippingScreen.css";
 const PayScreen = () => {
 	const [name, setName] = useState("");
 	const navigate = useNavigate();
@@ -22,14 +23,21 @@ const PayScreen = () => {
 	}, 0);
 	const shippingPrice = totalPrice > 100 ? 0 : 100;
 	const taxPrice = totalPrice * 0.02;
+
+	if (!localStorage.getItem("shippingAddress")) {
+		navigate("/shipping");
+	}
+
 	useEffect(() => {
-		if (!localStorage.getItem("shippingAddress")) {
-			navigate("/shipping");
-		}
 		if (orderdata) {
 			navigate(`/placeorder/${orderdata._id}`);
 		}
 	}, [navigate, orderdata]);
+
+	if (loading) {
+		return <Loader></Loader>;
+	}
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(
@@ -46,14 +54,14 @@ const PayScreen = () => {
 					postalCode: shippingAddress.postalcode,
 				},
 				paymentMethod: name,
+				phoneNumber: shippingAddress.phonenumber,
 			})
 		);
-
-		console.log(error);
 	};
 
 	return (
 		<div className="" style={{ minHeight: "75vh" }}>
+			{/* breadcrumb */}
 			<ol className="breadcrumb">
 				<li className="breadcrumb-item ">
 					<Link to="/" className="text-light">
@@ -82,85 +90,75 @@ const PayScreen = () => {
 				</li>
 			</ol>
 
-			<h1 className="text-center my-4 py-3 text-light">
-				Select your Payment method
-			</h1>
-			{loading ? (
-				<div style={{ display: "flex", justifyContent: "center" }}>
-					<Loader />
-				</div>
-			) : (
+			<div className="payment-box rounded-lg">
+				<div>{error && <Message color="danger">{error}</Message>}</div>
+				<h1 className="text-center text-capitalize  my-4 py-3 text-light">
+					Select your Payment method
+				</h1>
 				<div className="pb-3">
-					{error && <Message color="danger">{error}</Message>}
-					<form className="payment-box text-light" onSubmit={submitHandler}>
-						<div class="radio">
-							<label>
-								<input
-									type="radio"
-									value="Bkash"
-									onChange={(e) => setName(e.target.value)}
-									name="optradio"
-								/>
-								Bkash
-							</label>
+					<form className="text-light" onSubmit={submitHandler}>
+						<div className="d-flex align-items-center">
+							<input
+								type="radio"
+								value="Bkash"
+								onChange={(e) => setName(e.target.value)}
+								name="optradio"
+							/>
+							<p className="mb-0 ms-1">Bkash</p>
 						</div>
-						<div class="radio">
-							<label>
-								<input
-									type="radio"
-									name="optradio"
-									value="Rocket"
-									onChange={(e) => setName(e.target.value)}
-								/>
-								Rocket
-							</label>
+						<div className="d-flex align-items-center">
+							<input
+								type="radio"
+								name="optradio"
+								value="Rocket"
+								onChange={(e) => setName(e.target.value)}
+							/>
+
+							<p className="ms-1 mb-0">Rocket</p>
 						</div>
-						<div class="radio">
-							<label>
-								<input
-									type="radio"
-									name="optradio"
-									value="Stripe"
-									onChange={(e) => setName(e.target.value)}
-								/>
-								Stripe
-							</label>
+						<div className="d-flex align-items-center">
+							<input
+								type="radio"
+								name="optradio"
+								value="Stripe"
+								onChange={(e) => setName(e.target.value)}
+							/>
+							<p className="ms-1 mb-0">Stripe</p>
 						</div>
 
-						<div class="radio">
-							<label>
-								<input
-									type="radio"
-									name="optradio"
-									value="Paypal"
-									onChange={(e) => setName(e.target.value)}
-								/>
-								Paypal
-							</label>
+						<div className="d-flex align-items-center">
+							<input
+								type="radio"
+								name="optradio"
+								value="Paypal"
+								onChange={(e) => setName(e.target.value)}
+							/>
+							<p className="mb-0 ms-1">Paypal</p>
 						</div>
 
-						<div class="radio">
-							<label>
-								<input
-									type="radio"
-									name="optradio"
-									value="Hand to Hand"
-									onChange={(e) => setName(e.target.value)}
-								/>
-								Hand to Hand
-							</label>
+						<div className="d-flex align-items-center">
+							<input
+								type="radio"
+								name="optradio"
+								value="Hand to Hand"
+								onChange={(e) => setName(e.target.value)}
+							/>
+							<p className="mb-0 ms-1">Hand to Hand</p>
 						</div>
-						<button
-							type="submit"
-							className="px-2 py-1 btn btn-success btn-sm"
-							id="payButton"
-							disabled={!name}
-						>
-							continue
-						</button>
+
+						<div className="text-center mt-3">
+							<button
+								type="submit"
+								className="px-2 py-1 text-light btn btn-success btn-sm"
+								id="payButton"
+								disabled={!name}
+							>
+								continue
+							</button>
+						</div>
 					</form>
 				</div>
-			)}
+			</div>
 		</div>
 	);
 };
