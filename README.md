@@ -14,6 +14,8 @@ This is a full-stack ecommerce website built using React, Node.js, and MongoDB. 
 2. Nodejs.
 3. Redux.
 4. MonogoDB.
+5. Bootstrap
+6. antd
 
 
 ## Installation
