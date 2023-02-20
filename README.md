@@ -9,10 +9,11 @@ This is a full-stack ecommerce website built using React, Node.js, and MongoDB. 
 - Checkout and make purchases securely using Stripe
 - View order history and manage account settings
 ## Technologies
-1.React
-2.Nodejs
-3.Redux
-4.MonogoDB
+
+1. React.
+2. Nodejs.
+3. Redux.
+4. MonogoDB.
 
 
 ## Installation
