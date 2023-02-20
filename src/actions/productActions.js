@@ -31,7 +31,7 @@ export const getProduct =
 			};
 
 			const { data } = await axios.get(
-				`http://localhost:7070/api/products?keyWord=${searchKeyword}&pageNumber=${pageNumber}`,
+				`https://sina-ecom-server.vercel.app/api/products?keyWord=${searchKeyword}&pageNumber=${pageNumber}`,
 				config
 			);
 
@@ -60,7 +60,7 @@ export const getTopProduct = () => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.get(
-			`http://localhost:7070/api/products/top`,
+			`https://sina-ecom-server.vercel.app/api/products/top`,
 			config
 		);
 
@@ -89,7 +89,7 @@ export const getSingleProduct = (id) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.get(
-			`http://localhost:7070/api/products/${id}`,
+			`https://sina-ecom-server.vercel.app/api/products/${id}`,
 			config
 		);
 
@@ -123,7 +123,7 @@ export const addProduct = (add) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.post(
-			"http://localhost:7070/api/products",
+			"https://sina-ecom-server.vercel.app/api/products",
 			add,
 			config
 		);
@@ -157,7 +157,7 @@ export const editProduct = (editId, edit) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.put(
-			`http://localhost:7070/api/products/${editId}`,
+			`https://sina-ecom-server.vercel.app/api/products/${editId}`,
 			edit,
 			config
 		);
@@ -192,7 +192,7 @@ export const addProductReview = (id, review) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.post(
-			`http://localhost:7070/api/products/review/${id}`,
+			`https://sina-ecom-server.vercel.app/api/products/review/${id}`,
 			review,
 			config
 		);

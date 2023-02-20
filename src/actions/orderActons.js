@@ -23,7 +23,7 @@ export const createOrder = (addOrder) => async (dispatch, getState) => {
 			},
 		};
 		const { data } = await axios.post(
-			`http://localhost:7070/api/order/`,
+			`https://sina-ecom-server.vercel.app/api/order/`,
 			addOrder,
 			config
 		);
@@ -54,7 +54,7 @@ export const getSingleOrder = (id) => async (dispatch, getState) => {
 			},
 		};
 		const { data } = await axios.get(
-			`http://localhost:7070/api/order/${id}`,
+			`https://sina-ecom-server.vercel.app/api/order/${id}`,
 			config
 		);
 		dispatch({
@@ -84,7 +84,7 @@ export const getOrderByUser = () => async (dispatch, getState) => {
 			},
 		};
 		const { data } = await axios.get(
-			`http://localhost:7070/api/order/mine/orders`,
+			`https://sina-ecom-server.vercel.app/api/order/mine/orders`,
 			config
 		);
 		dispatch({

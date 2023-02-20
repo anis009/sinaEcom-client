@@ -19,7 +19,7 @@ export const createPayment = (id) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.get(
-			`http://localhost:7070/api/pay/${id}`,
+			`https://sina-ecom-server.vercel.app/api/pay/${id}`,
 			config
 		);
 		dispatch({

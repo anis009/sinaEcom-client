@@ -1,6 +1,16 @@
 .category-box {
-	width: 200px;
-	height: 80px;
 	background-color: #14213d;
 	border-color: #14213d !important;
+	/* background-image: url("../../images/categories/iphone.jpg"); */
+	background-size: cover;
+	background-position: center;
+	min-height: 200px;
+}
+
+.categories {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	justify-content: center;
+	grid-template-rows: auto;
+	gap: 10px;
 }

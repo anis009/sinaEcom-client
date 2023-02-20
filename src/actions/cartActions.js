@@ -6,7 +6,9 @@ import {
 } from "../constants/cartConstant";
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-	const { data } = await axios.get(`http://localhost:7070/api/products/${id}`);
+	const { data } = await axios.get(
+		`https://sina-ecom-server.vercel.app/api/products/${id}`
+	);
 
 	dispatch({
 		type: ADD_TO_CART,

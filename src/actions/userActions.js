@@ -27,7 +27,7 @@ export const register = (name, email, password) => async (dispatch) => {
 		};
 
 		const { data } = await axios.post(
-			"http://localhost:7070/api/users",
+			"https://sina-ecom-server.vercel.app/api/users",
 			{ name, email, password },
 			config
 		);
@@ -58,7 +58,7 @@ export const login = (email, password) => async (dispatch) => {
 		};
 
 		const { data } = await axios.post(
-			"http://localhost:7070/api/users/login",
+			"https://sina-ecom-server.vercel.app/api/users/login",
 			{ email, password },
 			config
 		);
@@ -99,7 +99,7 @@ export const updateUserAction = (name, email) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.put(
-			"http://localhost:7070/api/users/",
+			"https://sina-ecom-server.vercel.app/api/users/",
 			{ name, email },
 			config
 		);
@@ -136,7 +136,7 @@ export const sentTokenAction = (email) => async (dispatch, getState) => {
 		};
 
 		const { data } = await axios.post(
-			"http://localhost:7070/api/users/forgotpassword",
+			"https://sina-ecom-server.vercel.app/api/users/forgotpassword",
 			{ email },
 			config
 		);
@@ -169,7 +169,7 @@ export const resetPasswordAction =
 			};
 
 			const { data } = await axios.post(
-				`http://localhost:7070/api/users/resetpassword/${resetToken}`,
+				`https://sina-ecom-server.vercel.app/api/users/resetpassword/${resetToken}`,
 				{ password },
 				config
 			);

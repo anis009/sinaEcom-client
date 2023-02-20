@@ -167,7 +167,7 @@ const EditProductScreen = () => {
 				},
 			};
 			const { data } = await axios.post(
-				"http://localhost:7070/api/upload",
+				"https://sina-ecom-server.vercel.app/api/upload",
 				formData,
 				config
 			);

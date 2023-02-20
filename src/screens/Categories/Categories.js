@@ -11,7 +11,7 @@ const Categories = () => {
 		<div>
 			{loading && <Loader></Loader>}
 			<h1 className="text-light fs-3 font-semibold ms-2 pt-3">Categories</h1>
-			<div className="d-flex flex-wrap ">
+			<div className="categories ms-2">
 				{categories &&
 					categories.map((category, index) => (
 						<Category key={index} category={category}></Category>

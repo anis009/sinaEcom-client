@@ -1,54 +1,54 @@
 import React from "react";
-// import { FaStar } from "react-icons/fa";
+import { FaStarHalf, FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 const Rating = ({ rating, numReviews }) => {
 	rating = Number(rating);
 	return (
 		<div className="ratingBox text-light">
 			<span className="">
 				{rating >= 1 ? (
-					<img src="/images/star-filled.png" className="text-ligh" alt="" />
+					<FaStar className="rating"></FaStar>
 				) : rating >= 0.5 ? (
-					<img src="/images/star-half-empty.png" alt="" />
+					<FaStarHalfAlt className="rating"></FaStarHalfAlt>
 				) : (
-					<img src="/images/pixel-star.png" alt="" />
+					<FaRegStar className="rating"></FaRegStar>
 				)}
 			</span>
 			<span>
 				{rating >= 2 ? (
-					<img src="/images/star-filled.png" alt="" />
+					<FaStar className="rating"></FaStar>
 				) : rating >= 1.5 ? (
-					<img src="/images/star-half-empty.png" alt="" />
+					<FaStarHalfAlt className="rating"></FaStarHalfAlt>
 				) : (
-					<img src="/images/pixel-star.png" alt="" />
+					<FaRegStar className="rating"></FaRegStar>
 				)}
 			</span>
 
 			<span>
 				{rating >= 3 ? (
-					<img src="/images/star-filled.png" alt="" />
+					<FaStar className="rating"></FaStar>
 				) : rating >= 2.5 ? (
-					<img src="/images/star-half-empty.png" alt="" />
+					<FaStarHalfAlt className="rating"></FaStarHalfAlt>
 				) : (
-					<img src="/images/pixel-star.png" alt="" />
+					<FaRegStar className="rating"></FaRegStar>
 				)}
 			</span>
 
 			<span>
 				{rating >= 4 ? (
-					<img src="/images/star-filled.png" alt="" />
+					<FaStar className="rating"></FaStar>
 				) : rating >= 3.5 ? (
-					<img src="/images/star-half-empty.png" alt="" />
+					<FaStarHalfAlt className="rating"></FaStarHalfAlt>
 				) : (
-					<img src="/images/pixel-star.png" alt="" />
+					<FaRegStar className="rating"></FaRegStar>
 				)}
 			</span>
 			<span>
 				{rating >= 5 ? (
-					<img src="/images/star-filled.png" alt="" />
+					<FaStar className="rating"></FaStar>
 				) : rating >= 4.5 ? (
-					<img src="/images/star-half-empty.png" alt="" />
+					<FaStarHalfAlt className="rating"></FaStarHalfAlt>
 				) : (
-					<img src="/images/pixel-star.png" alt="" />
+					<FaRegStar className="rating"></FaRegStar>
 				)}
 			</span>
 			{numReviews && <span className="ml-1">{` (${numReviews}reviews)`}</span>}
