@@ -24,6 +24,6 @@ To use this project, you will need Node.js and MongoDB installed on your machine
 
 1. Clone the repository to your local machine.
 2. In the root directory, run `npm install` to install the necessary packages.
-3. In the `client` directory, run `npm install` to install the client-side dependencies.
+3. `run `npm install` to install the client-side dependencies.
 4. Create a `.env` file in the root directory and add your MongoDB connection string and Stripe API key:
 
