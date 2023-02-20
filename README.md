@@ -6,7 +6,7 @@ This is a full-stack ecommerce website built using React, Node.js, and MongoDB. 
 
 - Browse products by category and search for specific items
 - Add products to cart and update cart quantity or remove items
-- Checkout and make purchases securely using Stripe
+- Checkout and make purchases securely using Stripe,Bkash and Nagad
 - View order history and manage account settings
 ## Technologies
 
