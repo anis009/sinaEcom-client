@@ -9,7 +9,7 @@ const Product = ({ product }) => {
 			<div className="card  shadow-sm rounded-3">
 				{product.image.map((img) => (
 					<img
-						src={`http://localhost:7070${img.name}`}
+						src={`https://sina-ecom-server.vercel.app/${img.name}`}
 						className="card-img-top rounded-3 img-fluid"
 						alt={product.name}
 						key={img.name}

@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { register } from "../actions/userActions";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
 import { Editor, EditorState } from "draft-js";
 import "draft-js/dist/Draft.css";
 import axios from "axios";
-import { addProduct } from "../actions/productActions";
+import { addProduct } from "../../actions/productActions";
+import "./addProductScreen.css";
 
 const AddProductScreen = () => {
 	const [editorState, setEditorState] = React.useState(() =>
@@ -27,7 +27,6 @@ const AddProductScreen = () => {
 	const [categoryTouch, setCategoryTouch] = useState(false);
 	const [descriptionTouch, setDescriptionTouch] = useState(false);
 	const [countInStockTouch, setCountInStockTouch] = useState(false);
-
 	const nameIsValid = name.trim() !== "";
 	const brandIsValid = brand.trim() !== "";
 	const categoryIsValid = category.trim() !== "";
@@ -35,7 +34,6 @@ const AddProductScreen = () => {
 	const priceIsValid = price !== 0;
 	const countInStockIsValid = countInStock !== 0;
 	const nameIsInvalid = !nameIsValid && nameTouch;
-
 	const categoryIsInvalid = !categoryIsValid && categoryTouch;
 	const brandIsInvalid = !brandIsValid && brandTouch;
 	const descriptionIsInvalid = !descriptionIsValid && descriptionTouch;
@@ -164,7 +162,7 @@ const AddProductScreen = () => {
 			: "form-controls invalid";
 	console.log(editorState);
 	return (
-		<form action="" onSubmit={submitHandler}>
+		<form action="" onSubmit={submitHandler} className="addproduct__container">
 			<div style={{ display: "flex", justifyContent: "center" }}>
 				{loading && <Loader />}
 			</div>
@@ -179,6 +177,7 @@ const AddProductScreen = () => {
 					id="name"
 					onChange={nameChange}
 					value={name}
+					className="w-100"
 					onBlur={nameBlurHandler}
 				/>
 				{nameIsInvalid && <p className="error-text">Name must not be empty.</p>}
@@ -190,6 +189,7 @@ const AddProductScreen = () => {
 					id="brand"
 					onChange={brandChange}
 					value={brand}
+					className="w-100"
 					onBlur={brandBlurHandler}
 				/>
 				{brandIsInvalid && (
@@ -204,6 +204,7 @@ const AddProductScreen = () => {
 					id="category"
 					onChange={categoryChange}
 					value={category}
+					className="w-100"
 					onBlur={categoryBlurHandler}
 				/>
 				{nameIsInvalid && (
@@ -215,6 +216,7 @@ const AddProductScreen = () => {
 				<input
 					type="number"
 					id="category"
+					className="w-100"
 					onChange={priceChange}
 					value={price}
 					onBlur={priceBlurHandler}
@@ -233,6 +235,7 @@ const AddProductScreen = () => {
 					value={description}
 					onBlur={descriptionBlurHandler}
 					cols={20}
+					className="w-100"
 				/>
 				{descriptionIsInvalid && (
 					<p className="error-text">description must not be empty.</p>
@@ -246,6 +249,7 @@ const AddProductScreen = () => {
 					id="category"
 					onChange={countInStockChange}
 					value={countInStock}
+					className="w-100"
 					onBlur={countInStockBlurHandler}
 				/>
 				{countInStockIsInvalid && (
@@ -259,6 +263,7 @@ const AddProductScreen = () => {
 					type="file"
 					id="image"
 					ref={fileRef}
+					className="w-100"
 					onChange={imageChange}
 					cols={20}
 				/>
@@ -268,7 +273,7 @@ const AddProductScreen = () => {
 				<Editor editorState={editorState} onChange={setEditorState} />
 			</div>
 
-			<div className="add-product-btn-box">
+			<div className="add-product-btn-box mt-2 mb-3">
 				<button type="submit" disabled={!formIsValid}>
 					Add product
 				</button>

@@ -67,7 +67,7 @@ const Navbar = () => {
 								search
 							</button>
 						</form>
-						<ul className="navbar-nav ml-auto">
+						<ul className="navbar-nav ml-auto text-right">
 							<li className="nav-item ">
 								<Link
 									className="nav-link d-flex align-items-center font-size-20"

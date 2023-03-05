@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import AdminLayout from "../../Layout/AdminLayout/AdminLayout";
 import Main from "../../Layout/Main/Main";
+import AddProductScreen from "../../screens/admin/AddProductScreen";
+import EditProductScreen from "../../screens/admin/EditProductScreen";
+import ProductScreen from "../../screens/admin/ProductScreen";
 import CartSreen from "../../screens/CartScreen";
 import CartScreen from "../../screens/CartScreen";
 import HomeScreen from "../../screens/HomeScreen";
@@ -67,6 +70,14 @@ const router = createBrowserRouter([
 			{
 				path: "/admin",
 				element: <div>anis mola</div>,
+			},
+			{
+				path: "/admin/addproduct",
+				element: <AddProductScreen />,
+			},
+			{
+				path: "/admin/product",
+				element: <ProductScreen />,
 			},
 		],
 	},

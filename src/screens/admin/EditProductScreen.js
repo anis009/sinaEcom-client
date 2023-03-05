@@ -47,7 +47,7 @@ const EditProductScreen = () => {
 			setCategory(product.category);
 			setDescription(product.description);
 			setcountInStock(product.countInStock);
-			setImage(product.image[0].name);
+			setImage(product?.image[0]?.name);
 		}
 
 		if (editSuccess) {

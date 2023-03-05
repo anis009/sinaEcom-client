@@ -22,16 +22,17 @@ const ProductScreen = () => {
 
 	useEffect(() => {
 		if (!products) {
-			dispatch(getProduct());
+			dispatch(getProduct("", 1));
 		}
 	}, [products, dispatch]);
 	if (loading) {
 		return <div>Loading...</div>;
 	}
 	let product_id = 0;
+
 	return (
 		<>
-			<div style={{ marginLeft: "-100px" }}>
+			<div>
 				{loading ? (
 					<div style={loadingStyle}>
 						<Loader />
@@ -56,8 +57,8 @@ const ProductScreen = () => {
 									</tr>
 								</thead>
 								<tbody>
-									{products &&
-										products?.map((product) => (
+									{products?.products.length > 0 &&
+										products?.products?.map((product) => (
 											<tr>
 												<td>{product_id++}</td>
 
@@ -73,7 +74,7 @@ const ProductScreen = () => {
 														))}
 												</td>
 												<td>{product.name.substring(0, 20)}</td>
-												<td>{product.user.name}</td>
+												<td>{product?.user?.name}</td>
 												<td>{product.price}</td>
 												<td>{product.brand}</td>
 												<td>{product.countInStock}</td>

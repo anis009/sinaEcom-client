@@ -11,7 +11,6 @@ import {
 } from "../constants/productConstants";
 import { useState } from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 
 const ProductList = () => {
 	console.log("sina");
