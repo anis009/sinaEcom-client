@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import AdminLayout from "../../Layout/AdminLayout/AdminLayout";
 import Main from "../../Layout/Main/Main";
+import AddCategory from "../../screens/admin/AddCategory";
 import AddProductScreen from "../../screens/admin/AddProductScreen";
 import EditProductScreen from "../../screens/admin/EditProductScreen";
 import ProductScreen from "../../screens/admin/ProductScreen";
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
 			{
 				path: "/admin/product",
 				element: <ProductScreen />,
+			},
+			{
+				path: "/admin/addcategory",
+				element: <AddCategory />,
 			},
 		],
 	},

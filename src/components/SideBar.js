@@ -96,7 +96,9 @@ const SideBar = () => {
 				>
 					<div className="accordion-body">
 						<div className="m-2 pt-2">
-							<Link className="btn btn-light w-100">Add category</Link>
+							<Link to="/admin/addcategory" className="btn btn-light w-100">
+								Add category
+							</Link>
 						</div>
 						<div className="m-2 pt-2">
 							<Link className="btn btn-light w-100">Show category</Link>
