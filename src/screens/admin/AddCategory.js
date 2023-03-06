@@ -25,7 +25,7 @@ const AddCategory = () => {
 				},
 			};
 			const { data } = await axios.post(
-				"http://localhost:7070/api/upload",
+				"https://sina-ecom-server.vercel.app/api/upload",
 				formData,
 				config
 			);
@@ -38,9 +38,13 @@ const AddCategory = () => {
 				name: name,
 			};
 			const createdData = (
-				await axios.post("http://localhost:7070/api/category", createImage, {
-					"Content-Type": "application/json",
-				})
+				await axios.post(
+					"https://sina-ecom-server.vercel.app/api/category",
+					createImage,
+					{
+						"Content-Type": "application/json",
+					}
+				)
 			).data;
 			console.log(createdData);
 			if (createdData) {

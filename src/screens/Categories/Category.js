@@ -1,13 +1,17 @@
 import React from "react";
-import Iphone from "../../images/categories/iphone.jpg";
+import { DEFAULT_URL } from "../../constants/urlConstant";
 
 const Category = ({ category }) => {
 	return (
-		<div
-			style={{ backgroundImage: `url(${Iphone})` }}
-			className="pointer-event rounded-lg border category-box justify-content-center align-items-center"
-		>
-			<h4 className="text-light text-capitalize">{category?.name}</h4>
+		<div className=" d-flex flex-column rounded-lg border category-box justify-content-center align-items-center">
+			<div className="">
+				<img
+					className="category__image"
+					src={`${DEFAULT_URL}${category?.image}`}
+					alt=""
+				/>
+			</div>
+			<h4 className="text-light mt-2 text-capitalize">{category?.name}</h4>
 		</div>
 	);
 };
