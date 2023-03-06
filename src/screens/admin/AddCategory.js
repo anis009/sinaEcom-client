@@ -19,22 +19,21 @@ const AddCategory = () => {
 		formData.append("image", image);
 		console.log(image);
 		try {
-			const config = {
-				headers: {
-					"Content-Type": "multipart/form-data",
-				},
-			};
-			const { data } = await axios.post(
-				"https://sina-ecom-server.vercel.app/api/upload",
-				formData,
-				config
-			);
-			if (!data) {
+			// const config = {
+			// 	headers: {
+			// 		"Content-Type": "multipart/form-data",
+			// 	},
+			// };
+			const imageHostKey = process.env.REACT_APP_imgbb_key;
+			const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+			const imgData = (await axios.post(url, formData)).data;
+			console.log(imgData);
+			if (!imgData?.success) {
 				alert("Image doesn't upload\n try again");
 				return;
 			}
 			const createImage = {
-				image: data,
+				image: imgData?.data?.url,
 				name: name,
 			};
 			const createdData = (
