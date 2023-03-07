@@ -1,4 +1,7 @@
 .addproduct__container {
-	width: 60%;
+	width: 70%;
 	margin: auto;
+	background-color: rgb(218, 213, 213);
+	padding: 20px;
+	border-radius: 10px;
 }

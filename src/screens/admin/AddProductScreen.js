@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Message from "../../components/Message";
@@ -8,11 +8,14 @@ import "draft-js/dist/Draft.css";
 import axios from "axios";
 import { addProduct } from "../../actions/productActions";
 import "./addProductScreen.css";
+import { getCategories } from "../../actions/categoriesAction";
+import { toast } from "react-hot-toast";
 
 const AddProductScreen = () => {
 	const [editorState, setEditorState] = React.useState(() =>
 		EditorState.createEmpty()
 	);
+	const [file, setFile] = useState("");
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState(0);
 	const [brand, setBrand] = useState("");
@@ -39,6 +42,10 @@ const AddProductScreen = () => {
 	const descriptionIsInvalid = !descriptionIsValid && descriptionTouch;
 	const priceIsInvalid = !priceIsValid && priceTouch;
 	const countInStockIsInvalid = !countInStockIsValid && countInStockTouch;
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getCategories());
+	}, [dispatch]);
 
 	const fileRef = useRef();
 
@@ -57,34 +64,70 @@ const AddProductScreen = () => {
 	}
 	const navigate = useNavigate();
 	const userSignup = useSelector((state) => state.userSignup);
+	const AllCategories = useSelector((state) => state.categories);
 	const { userInfo } = userSignup;
+	const { categories } = AllCategories;
 
 	const addproduct = useSelector((state) => state.addProduct);
 	const { loading, success, error } = addproduct;
 
-	const dispatch = useDispatch();
+	console.log(category);
 
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
-		dispatch(
-			addProduct({
-				name,
-				price,
-				description,
-				countInStock,
-				brand,
-				category,
-				user: userInfo._id,
-				image: [{ name: image }],
-			})
-		);
-		setName("");
-		setPrice("");
-		setCategory("");
-		setDescription("");
-		setcountInStock("");
-		setBrand("");
-		fileRef.value = "";
+		const formData = new FormData();
+		formData.append("image", file);
+
+		try {
+			// const config = {
+			// 	headers: {
+			// 		"Content-Type": "multipart/form-data",
+			// 	},
+			// };
+			// const { data } = await axios.post(
+			// 	"https://sina-ecom-server.vercel.app/api/upload",
+			// 	formData,
+			// 	config
+			// );
+
+			const imageHostKey = process.env.REACT_APP_imgbb_key;
+			const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+			const imgData = (await axios.post(url, formData)).data;
+			console.log(imgData);
+			if (!imgData?.success) {
+				alert("Image doesn't upload\n try again");
+				return;
+			}
+			dispatch(
+				addProduct({
+					name,
+					price,
+					description,
+					countInStock,
+					brand,
+					category,
+					user: userInfo._id,
+					image: [{ name: imgData?.data?.url }],
+				})
+			);
+			console.log({ success });
+			if (success) {
+				setName("");
+				setPrice("");
+				setCategory("");
+				setDescription("");
+				setBrand("");
+				setcountInStock("");
+				setNameTouch(false);
+				setPriceTouch(false);
+				setCountInStockTouch(false);
+				setDescriptionTouch(false);
+				setBrandTouch(false);
+				toast.success("product added");
+			}
+		} catch (err) {
+			console.error(err);
+		}
 	};
 	const nameBlurHandler = (e) => {
 		setNameTouch(true);
@@ -114,28 +157,7 @@ const AddProductScreen = () => {
 	};
 
 	const imageChange = async (e) => {
-		const file = e.target.files[0];
-		const formData = new FormData();
-		formData.append("image", file);
-		setUploading(true);
-		try {
-			const config = {
-				headers: {
-					"Content-Type": "multipart/form-data",
-				},
-			};
-			const { data } = await axios.post(
-				"https://sina-ecom-server.vercel.app/api/upload",
-				formData,
-				config
-			);
-			setImage(data);
-			console.log(data);
-			setUploading(false);
-		} catch (err) {
-			console.error(err);
-			setUploading(false);
-		}
+		setFile(e.target.files[0]);
 	};
 	const countInStockChange = (e) => {
 		setcountInStock(e.target.value);
@@ -162,7 +184,8 @@ const AddProductScreen = () => {
 			: "form-controls invalid";
 	console.log(editorState);
 	return (
-		<form action="" onSubmit={submitHandler} className="addproduct__container">
+		<form onSubmit={submitHandler} className="addproduct__container my-4">
+			<h1>Create Product</h1>
 			<div style={{ display: "flex", justifyContent: "center" }}>
 				{loading && <Loader />}
 			</div>
@@ -199,14 +222,32 @@ const AddProductScreen = () => {
 
 			<div className={classesName}>
 				<label htmlFor="category">Category</label>
-				<input
+				{/* <input
 					type="text"
 					id="category"
 					onChange={categoryChange}
 					value={category}
 					className="w-100"
 					onBlur={categoryBlurHandler}
-				/>
+				/> */}
+				<select
+					id="category"
+					onChange={categoryChange}
+					value={category}
+					className="w-100 py-2"
+					onBlur={categoryBlurHandler}
+				>
+					<option value="" className="pl-2">
+						select category
+					</option>
+					{categories &&
+						categories.length > 0 &&
+						categories?.map(({ name }, index) => (
+							<option value={name} key={index} className="pl-2">
+								{name}
+							</option>
+						))}
+				</select>
 				{nameIsInvalid && (
 					<p className="error-text">category must not be empty.</p>
 				)}
@@ -235,6 +276,7 @@ const AddProductScreen = () => {
 					value={description}
 					onBlur={descriptionBlurHandler}
 					cols={20}
+					rows={10}
 					className="w-100"
 				/>
 				{descriptionIsInvalid && (

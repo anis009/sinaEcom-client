@@ -95,10 +95,20 @@ const ProductDetailsScreen = () => {
 											smallImage: {
 												alt: "Wristwatch by Ted Baker London",
 												isFluidWidth: true,
-												src: `http://localhost:7070${product.image[0].name}`,
+												src: `${
+													product?.image[0]?.name.includes("i.ibb.co")
+														? product?.image[0]?.name
+														: "https://sina-ecom-server.vercel.app/" +
+														  product?.image[0]?.name
+												}`,
 											},
 											largeImage: {
-												src: `http://localhost:7070${product.image[0].name}`,
+												src: `${
+													product?.image[0]?.name.includes("i.ibb.co")
+														? product?.image[0]?.name
+														: "https://sina-ecom-server.vercel.app/" +
+														  product?.image[0]?.name
+												}`,
 												width: 1200,
 												height: 1800,
 											},
@@ -169,7 +179,6 @@ const ProductDetailsScreen = () => {
 									</ul>
 								</div>
 							</div>
-
 							<div className="row mx-3 my-5">
 								<div className="col-lg-7">
 									<div>

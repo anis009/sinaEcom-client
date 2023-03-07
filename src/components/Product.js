@@ -9,14 +9,18 @@ const Product = ({ product }) => {
 			<div className="card  shadow-sm rounded-3">
 				{product.image.map((img) => (
 					<img
-						src={`https://sina-ecom-server.vercel.app/${img.name}`}
+						src={
+							img?.name?.includes("i.ibb.co")
+								? img.name
+								: `https://sina-ecom-server.vercel.app/${img.name}`
+						}
 						className="card-img-top rounded-3 img-fluid"
 						alt={product.name}
 						key={img.name}
 					/>
 				))}
 				<div className="card-body">
-					<h5 className="card-title text-light pt-2">{`${product.name.substring(
+					<h5 className="card-title text-light pt-2 product__title">{`${product.name.substring(
 						0,
 						40
 					)} ${product.name.length > 40 ? " ...." : ""}`}</h5>

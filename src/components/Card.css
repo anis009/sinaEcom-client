@@ -15,6 +15,10 @@
 	justify-content: space-between;
 }
 
+.product__title:hover {
+	text-decoration: underline;
+}
+
 .card-button button {
 	padding: 5px 10px;
 	border: none;
